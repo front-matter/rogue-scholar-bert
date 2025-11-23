@@ -10,7 +10,6 @@ dependencies = [
   "transformers>=4.46,<4.47",
   "torch>=2.5,<2.6",
   "hypercorn>=0.17,<0.18",
-  "h2>=4.1,<5",
   "python-dotenv>=1.0.0,<2",
   "quart-schema>=0.17.1,<0.18",
   "quart-cors>=0.7.0,<0.8",

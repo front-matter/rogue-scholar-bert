@@ -756,7 +756,6 @@ name = "rogue-scholar-bert"
 version = "0.4"
 source = { editable = "." }
 dependencies = [
-    { name = "h2" },
     { name = "hypercorn" },
     { name = "python-dotenv" },
     { name = "quart" },
@@ -770,7 +769,6 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "h2", specifier = ">=4.1,<5" },
     { name = "hypercorn", specifier = ">=0.17,<0.18" },
     { name = "python-dotenv", specifier = ">=1.0.0,<2" },
     { name = "quart", specifier = ">=0.20,<0.21" },

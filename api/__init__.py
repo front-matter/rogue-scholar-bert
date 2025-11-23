@@ -31,12 +31,7 @@ app = cors(app, allow_origin="*")
 
 def run() -> None:
     """Run the app."""
-    import subprocess
-    import sys
-
-    subprocess.run(
-        [sys.executable, "-m", "hypercorn", "api:app", "--config", "hypercorn.toml"]
-    )
+    app.run()
 
 
 @app.route("/heartbeat")

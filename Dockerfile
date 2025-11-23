@@ -22,4 +22,4 @@ RUN uv pip install --system --no-deps -e .
 
 EXPOSE 5100
 
-CMD ["uv", "run", "start"]
+CMD ["hypercorn", "-b",  "0.0.0.0:5100", "api:app"]

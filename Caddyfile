@@ -1,0 +1,5 @@
+localhost {
+	tls internal
+	reverse_proxy bert:6000
+	encode gzip
+}

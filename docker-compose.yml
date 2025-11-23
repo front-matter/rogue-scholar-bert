@@ -1,0 +1,27 @@
+services:
+  proxy:
+    image: caddy:2.8.4
+    restart: "unless-stopped"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+  bert:
+    build: .
+    volumes:
+      - ./inference.py:/app/inference.py
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:6000/classify', data=b'{\"text\":\"test\"}').read()"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+volumes:
+  caddy_data:
+  caddy_config:

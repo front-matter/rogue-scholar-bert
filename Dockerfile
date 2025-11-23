@@ -1,16 +1,25 @@
-FROM python:3.13-slim
+FROM python:3.12-slim
 
 WORKDIR /app
 
 # Install uv
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
 
-COPY pyproject.toml uv.lock ./
-RUN --mount=type=cache,target=/root/.cache/uv \
-  uv sync --frozen --no-install-project --no-dev
+# Copy dependency files
+COPY pyproject.toml ./
+RUN touch README.md
 
+# Install dependencies only (not the project itself yet)
+RUN --mount=type=cache,target=/root/.cache/uv \
+  uv pip install --system --no-deps transformers torch hypercorn Quart python-dotenv quart-schema quart-cors quart-rate-limiter
+
+# Copy application code
 COPY api ./api
 COPY hypercorn.toml ./
-EXPOSE 8090
 
-CMD ["hypercorn", "-b",  "0.0.0.0:8090", "api:app"]
+# Install the project
+RUN uv pip install --system --no-deps -e .
+
+EXPOSE 5100
+
+CMD ["uv", "run", "start"]

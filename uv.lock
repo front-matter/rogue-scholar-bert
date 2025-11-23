@@ -762,13 +762,9 @@ dependencies = [
     { name = "quart-cors" },
     { name = "quart-rate-limiter" },
     { name = "quart-schema" },
-    { name = "transformers" },
-]
-
-[package.optional-dependencies]
-cpu = [
     { name = "torch", version = "2.5.1", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(python_full_version < '3.13' and platform_machine == 'aarch64' and platform_python_implementation == 'CPython' and sys_platform == 'linux') or sys_platform == 'darwin'" },
     { name = "torch", version = "2.5.1+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(python_full_version >= '3.13' and sys_platform == 'linux') or (platform_machine != 'aarch64' and sys_platform == 'linux') or (platform_python_implementation != 'CPython' and sys_platform == 'linux') or (sys_platform != 'darwin' and sys_platform != 'linux')" },
+    { name = "transformers" },
 ]
 
 [package.metadata]
@@ -779,7 +775,7 @@ requires-dist = [
     { name = "quart-cors", specifier = ">=0.7.0,<0.8" },
     { name = "quart-rate-limiter", specifier = ">=0.10.0,<0.11" },
     { name = "quart-schema", specifier = ">=0.17.1,<0.18" },
-    { name = "torch", marker = "extra == 'cpu'", specifier = ">=2.5,<2.6", index = "https://download.pytorch.org/whl/cpu" },
+    { name = "torch", specifier = ">=2.5,<2.6", index = "https://download.pytorch.org/whl/cpu" },
     { name = "transformers", specifier = ">=4.46,<4.47" },
 ]
 provides-extras = ["cpu"]

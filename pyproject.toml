@@ -8,6 +8,7 @@ requires-python = ">=3.12"
 dependencies = [
   "Quart>=0.20,<0.21",
   "transformers>=4.46,<4.47",
+  "torch>=2.5,<2.6",
   "hypercorn>=0.17,<0.18",
   "python-dotenv>=1.0.0,<2",
   "quart-schema>=0.17.1,<0.18",
@@ -16,7 +17,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-cpu = ["torch>=2.5,<2.6"]
+cpu = []
 
 [tool.uv.sources]
 torch = { index = "pytorch-cpu" }

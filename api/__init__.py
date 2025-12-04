@@ -2,7 +2,6 @@
 
 from hypercorn.config import Config
 import logging
-from datetime import timedelta
 from os import environ
 from dotenv import load_dotenv
 from quart import Quart, request, jsonify
@@ -10,7 +9,7 @@ from quart_schema import (
     QuartSchema,
     Info,
 )
-from quart_rate_limiter import RateLimiter, RateLimit, rate_limit
+from quart_rate_limiter import RateLimiter, rate_limit
 from quart_cors import cors
 
 from api.inference import classify

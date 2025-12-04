@@ -634,14 +634,14 @@ wheels = [
 
 [[package]]
 name = "quart-rate-limiter"
-version = "0.10.0"
+version = "0.12.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "quart" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/81/d9/c6e98db7fdf9ff31ecd8da889a58ece0d214cb12ee1b41751b751b3201e2/quart_rate_limiter-0.10.0.tar.gz", hash = "sha256:87e538e50b4a0e8c3fc2d72e0c7bd4f0de193f041d70e9deb18128730e9a3e5b", size = 7112, upload-time = "2024-05-19T09:41:16.45Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/db/c4/84c073f15612ad6971e95cd541e75534de0fdeab9e59d6ff968f17622a18/quart_rate_limiter-0.12.1.tar.gz", hash = "sha256:9bd44b35372d0255ae716bff9aedeb041188cc3480a51a37e1f9e00b178941f3", size = 9647, upload-time = "2025-08-13T12:41:26.594Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/f1/41/310850a9e1940f8c014602647d929985eb88a09f15fffabef021f81a06b1/quart_rate_limiter-0.10.0-py3-none-any.whl", hash = "sha256:dcc9b429b856550744dd014f6f02f6d9e6b01b39b1a2092bec2fc4bbd408f902", size = 7966, upload-time = "2024-05-19T09:41:14.895Z" },
+    { url = "https://files.pythonhosted.org/packages/17/c2/ed5b657287b9cf5b7ef59e243f5c95265a26f78bf3f96a06b3b44d30ea5d/quart_rate_limiter-0.12.1-py3-none-any.whl", hash = "sha256:c910aa603b1eaaedb02d9475c9df1626e32b2bd936647228609d00269521f656", size = 8960, upload-time = "2025-08-13T12:41:25.207Z" },
 ]
 
 [[package]]
@@ -753,7 +753,7 @@ wheels = [
 
 [[package]]
 name = "rogue-scholar-bert"
-version = "0.11"
+version = "0.14"
 source = { editable = "." }
 dependencies = [
     { name = "hypercorn" },
@@ -773,7 +773,7 @@ requires-dist = [
     { name = "python-dotenv", specifier = ">=1.0.0,<2" },
     { name = "quart", specifier = ">=0.20,<0.21" },
     { name = "quart-cors", specifier = ">=0.7.0,<0.8" },
-    { name = "quart-rate-limiter", specifier = ">=0.10.0,<0.11" },
+    { name = "quart-rate-limiter", specifier = ">=0.12.1,<0.13" },
     { name = "quart-schema", specifier = ">=0.17.1,<0.18" },
     { name = "torch", specifier = ">=2.5,<2.6", index = "https://download.pytorch.org/whl/cpu" },
     { name = "transformers", specifier = ">=4.46,<4.47" },

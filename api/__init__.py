@@ -10,7 +10,7 @@ from quart_schema import (
     QuartSchema,
     Info,
 )
-from quart_rate_limiter import RateLimiter, RateLimit, rate_limit
+from quart_rate_limiter import RateLimiter, rate_limit
 from quart_cors import cors
 
 from api.inference import classify
@@ -24,13 +24,13 @@ version = "0.2.1"
 app = Quart(__name__, static_folder="static", static_url_path="")
 app.config.from_prefixed_env()
 QuartSchema(app, info=Info(title="Rogue Scholar Bert API", version=version))
-limiter = RateLimiter(app)
+rate_limiter = RateLimiter(app)
 app = cors(app, allow_origin="*")
 
 
 def run() -> None:
     """Run the app."""
-    app.run()
+    app.run(host="0.0.0.0", port=5100)
 
 
 @app.route("/heartbeat")
@@ -40,7 +40,7 @@ async def heartbeat():
 
 
 @app.route("/classify", methods=["POST"])
-@rate_limit(RateLimit(10, timedelta(minutes=1)))
+@rate_limit(10, timedelta(seconds=60))
 async def classify_text():
     """classify text input."""
     if (

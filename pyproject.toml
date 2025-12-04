@@ -1,6 +1,6 @@
 [project]
 name = "rogue-scholar-bert"
-version = "0.12"
+version = "0.13"
 description = "Rogue Scholar BERT subject classification service"
 authors = [{ name = "Martin Fenner", email = "martin@front-matter.io" }]
 readme = "README.md"

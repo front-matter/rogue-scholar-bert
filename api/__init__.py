@@ -64,7 +64,7 @@ async def ratelimit_handler(e):
     if retry_after and hasattr(retry_after, "total_seconds"):
         retry_seconds = int(retry_after.total_seconds())
     else:
-        retry_seconds = 60
+        retry_seconds = 30
     return (
         jsonify(
             {
@@ -73,5 +73,5 @@ async def ratelimit_handler(e):
             }
         ),
         429,
-        {"Retry-After": str(retry_seconds)},
+        {"retry-after": str(retry_seconds)},
     )

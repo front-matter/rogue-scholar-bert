@@ -10,7 +10,7 @@ from quart_schema import (
     QuartSchema,
     Info,
 )
-from quart_rate_limiter import RateLimiter, RateLimit
+from quart_rate_limiter import RateLimiter, RateLimit, rate_limit
 from quart_cors import cors
 
 from api.inference import classify
@@ -24,7 +24,7 @@ version = "0.2.1"
 app = Quart(__name__, static_folder="static", static_url_path="")
 app.config.from_prefixed_env()
 QuartSchema(app, info=Info(title="Rogue Scholar Bert API", version=version))
-limiter = RateLimiter(app, default_limits=[RateLimit(10, timedelta(seconds=60))])
+limiter = RateLimiter(app)
 app = cors(app, allow_origin="*")
 
 
@@ -40,7 +40,7 @@ async def heartbeat():
 
 
 @app.route("/classify", methods=["POST"])
-@rate_limit("5 per minute")
+@rate_limit("10 per minute")
 async def classify_text():
     """classify text input."""
     if (
@@ -55,9 +55,7 @@ async def classify_text():
         return {"error": "No JSON data provided"}, 400
 
     result = await classify(data.get("title", None), data.get("abstract", None))
-    response = jsonify(result)
-    response.headers["Retry-After"] = "30"
-    return response
+    return jsonify(result)
 
 
 @app.errorhandler(429)

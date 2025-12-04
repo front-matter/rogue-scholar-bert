@@ -753,7 +753,7 @@ wheels = [
 
 [[package]]
 name = "rogue-scholar-bert"
-version = "0.6"
+version = "0.8"
 source = { editable = "." }
 dependencies = [
     { name = "hypercorn" },

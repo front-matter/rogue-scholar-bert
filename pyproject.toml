@@ -7,7 +7,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
   "Quart>=0.20,<0.21",
-  "transformers>=4.46,<4.47",
+  "transformers>=5.3.0,<5.4",
   "torch>=2.5,<2.6",
   "hypercorn>=0.17,<0.18",
   "python-dotenv>=1.0.0,<2",
